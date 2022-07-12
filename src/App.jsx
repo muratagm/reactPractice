@@ -1,37 +1,28 @@
 import React from "react";
+import ColorfulMessage from "./components/ColorfulMessage"; //拡張子はしょうりゃくできる
 const App = () => {
   const onClickButton = () => alert();
 
   //オブジェクトの変数を定義
-  const contentStyle = {
+  const contentLedyStyle = {
     //※1 これはjavascriptのブジェクト
     color: "blue",
     fontSize: "18px",
     fontWeight: "bold", //ここはjavascriptのオブジェクト野中なので、cssのハイフンはキャメルケースで確必要がある
-    backgroundColor: "skyblue"
+    backgroundColor: "pink"
   };
   return (
+    //コンポーネント化したやつをインポートしてきて、出力するときはタグの中に凝っンポーねんと名を確<colorfulMessage />タグは閉じないとエラーになる
+    //コンポーネントにてきとうな名前をつけて例：color="blue" message="おげんきですか" (color、messageがpropsになる)
     <>
-      <h1
-        style={
-          //波括弧 javascript その中で更に波括弧 「javascriptのオブジェクト」になる
-          //cssのプロパティをかくにはストリング文字列として扱う必要がある
-          //文字列にしないと、javascriptにredなんかないよと渓谷が出る
-          //これはjavascriptのオブジェクトなのでなので、ここにここに直接かく以外に、変数を定義しその中に確やり方※1もある
-          { color: "red" }
-        }
-      >
-        こんにちは
-      </h1>
-      <p style={contentStyle}>おげんきですか</p>
-      <button
-        onClick={
-          //JSxのタグの中で波括弧でくくると、その中はjavascriptがかける
-          onClickButton
-        }
-      >
-        ボタン
-      </button>
+      <h1 style={{ color: "red" }}>こんにちは</h1>
+      <ColorfulMessage color="blue" fontSize="24px" backgroundColor="skyblue">
+        おじいちゃん
+      </ColorfulMessage>
+      <ColorfulMessage color="#666" fontSize="24px" backgroundColor="pink">
+        おばあちゃん
+      </ColorfulMessage>
+      <button onClick={onClickButton}>ボタン</button>
     </>
   );
 };
